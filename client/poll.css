@@ -1,0 +1,17 @@
+/* CSS declarations go here */
+@import url(http://fonts.googleapis.com/css?family=Gloria+Hallelujah);
+
+* {
+	font-family: 'Gloria Hallelujah';
+}
+
+svg {
+	font-size: 10px;
+}
+
+.connected.items .item {
+	opacity: 0.6;
+}
+.standOut {
+	opacity: 1 !important;
+}

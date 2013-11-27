@@ -1,0 +1,80 @@
+<template name="layout">
+	<head>
+		<title>Favorite Stall Poll</title>
+	</head>
+	<body>
+		<div class="ui grid">
+			<div class="sixteen wide column">
+				<div class="ui vertical segment">
+					<h1 class="ui header">The Kids' favorite Stall Poll</h1>
+				</div>
+			</div>
+		</div>
+		<div class="ui grid">
+			{{yield}}
+		</div>
+	</body>
+</template>
+
+<template name="pollform">
+	<div class="sixteen wide column">
+		<div class="ui form segment">
+
+			<div class="ui success message hidden" id="success">
+				<div class="header">Your inputs were received. Look at the screen to view the update.</div>
+			</div>
+
+			<div id="theForm">
+				<div class="field">
+					<label>My Name is</label>
+					<div class="ui left labeled icon input">
+						<input type="text" id="name">
+						<div class="ui red pointing above ui label hidden" id="entername">Enter a first name</div>
+						<i class="user icon"></i>
+						<div class="ui corner label">
+							<i class="icon asterisk"></i>
+						</div>
+					</div>
+				</div>
+				<div class="field">
+					<label>and my favorite stall was</label>
+					<div class="ui three connected items">
+						{{#each stalls}}
+							{{> voteitem}}
+						{{/each}}
+					</div>
+					<div class="ui red pointing above ui label hidden" id="enterstall">Select Stall</div>
+				</div>
+				<div class="field">
+					<label>because</label>
+					<div class="ui left labeled icon input">
+						<input type="text" id="comment">
+						<div class="ui red pointing above ui label hidden" id="entercomment">Enter comment</div>
+						<i class="comment icon"></i>
+						<div class="ui corner label">
+							<i class="icon asterisk"></i>
+						</div>
+					</div>
+				</div>
+				<div class="ui error message">
+					<div class="header">We noticed some issues</div>
+				</div>
+				<center><div class="ui red submit button" id="submit">Submit</div></center>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="voteitem">
+	<div class="item">
+		<div class="image">
+			<img src="{{ image }}">
+			<a class="like ui corner label">
+				<i class="icon" id="{{ _id }}"></i>
+			</a>
+		</div>
+		<div class="content">
+			<div class="name">{{ name }}</div>
+		</div>
+	</div>
+</template>

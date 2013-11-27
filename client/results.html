@@ -1,0 +1,43 @@
+<template name="results">
+    <div class="eight wide column">
+        {{> barChart}}
+        {{#each stalls}}
+            {{> wordcloud}}
+        {{/each}}
+        {{> stallFlower}}
+
+        <table width="100%">
+            <tr>
+                <th>Stall</th>
+                <th style="text-align: center;">Score</th>
+            </tr>
+            {{#each stalls}}
+                {{> row}}
+            {{/each}}
+        </table>
+    </div>
+</template>
+
+<template name="row">
+    <tr>
+        <td>{{ name }}</td>
+        <td style="text-align: center;">{{ votes.length }}</td>
+    </tr>
+</template>
+
+<template name="stallFlower">
+    <div id="stallFlower">
+    </div>
+</template>
+
+<template name="wordcloud">
+    <h4>{{name}}</h4>
+    <div id="wordcloud_{{_id}}">
+    </div>
+</template>
+
+<template name="barChart">
+    <div id="barChart">
+        <svg></svg>
+    </div>
+</template>

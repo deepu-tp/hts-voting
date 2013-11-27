@@ -1,0 +1,93 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<title>Visible Tweets &ndash; A live Twitter wall for events, conferences and screens</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta name="author" content="The Man in Blue" />
+	<meta name="robots" content="all" />
+	<meta name="MSSmartTagsPreventParsing" content="true" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+
+	<link rel="stylesheet" href="css/main.css" type="text/css" media="screen, projection" />
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript" src="js/swfobject.js"></script>
+	<script type="text/javascript">
+		var flashvars = {};
+		var params = {};
+		params.play = "true";
+		params.loop = "true";
+		params.menu = "true";
+		params.quality = "high";
+		params.scale = "noscale";
+		params.salign = "tl";
+		params.wmode = "window";
+		params.bgcolor = "#000000";
+		params.allowfullscreen = "true";
+		params.allowscriptaccess = "sameDomain";
+		params.swliveconnect = "true";
+		var attributes = {};
+		attributes.align = "middle";
+		swfobject.embedSWF("Visualisation copy 2.swf", "visibleTweets", "100%", "100%", "9.0.0", "expressInstall.swf", flashvars, params, attributes);
+		
+		function getUrl()
+		{
+			return window.location.href;
+		}
+		
+		function setUrl(fragmentIdentifier)
+		{
+			window.location = window.location.href.replace(/\#.*$/, "") + fragmentIdentifier;
+		}
+		
+		function goHome()
+		{
+			window.location = "http://localhost/vt/";
+		}
+
+		function debug(msg) {
+			console.log(msg);
+		}
+
+		function fetchJSON(url) {
+			url = 'test.json';
+			var jsonFetcher = document.getElementById('jsonFetcher');
+			jsonFetcher && jsonFetcher.parentNode.removeChild(jsonFetcher);
+			$.getJSON(url, jsonCallback);
+		}
+
+		function jsonCallback(data) {
+			if (data.errors && data.errors[0].code == 88) {
+				document.getElementById('message').className = 'on';
+				return false;
+			}
+			else {
+				document.getElementById('message').className = '';
+			}
+			// Have to convert favorites data into same structure as search data
+			if (data instanceof Array) {
+				data = {'statuses': data};
+			}
+			// Have to convert data into same structure as the Flash event handler is expecting
+			var newStructure = {target: {data: JSON.stringify(data)}};
+			document.getElementById('visibleTweets').sendJSON(newStructure);
+		}		
+	</script>
+</head>
+<body>
+	<div id="visibleTweets">
+		<div id="noFlash">
+			<h1>
+				<span class="replacement"></span>Visible Tweets
+			</h1>
+			<p>Visible Tweets is a visualisation of Twitter messages designed for display in public spaces.</p>
+			<p>Enquiries about customisations - including font or colour changes, logos and backgrounds - should be directed to <a href="http://themaninblue.com/contact">The Man in Blue</a>.</p>
+			<p>This site doesn't really do much if you don't have Flash 9 installed and JavaScript enabled. If you want to see it, you'll have to go <a href="http://www.adobe.com/go/getflashplayer">install the Flash plugin for your browser</a>.</p>
+		</div> <!-- END #noFlash -->
+	</div> <!-- END #visibleTweets -->
+	<div id="message">You've exceeded Twitter's limit for search queries, please retry in a few minutes. If you would like a quote on a version with unlimited queries or other customisations, email <a href="mailto:visibletweets@themaninblue.com?subject=Visible Tweets Customisation" target="_blank">visibletweets@themaninblue.com</a>
+	</div>
+</body>
+</html>

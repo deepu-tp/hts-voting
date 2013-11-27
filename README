@@ -1,0 +1,6 @@
+Console the following:
+
+Client.insert({'name': 'Aeromodelling', 'image': 'aero.jpg'});
+Client.insert({'name': 'Automation', 'image': 'automation.jpg'});
+Client.insert({'name': 'IT', 'image': 'it.jpg'});
+

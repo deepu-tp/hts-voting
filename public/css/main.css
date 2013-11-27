@@ -1,0 +1,136 @@
+
+/* GENERAL ------------------------------------------------------------------ */
+
+/* Zero default margin & padding around common elements */
+body, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, li, ol, p, ul
+{
+	margin: 0;
+	border: 0 none #FFFFFF;
+	padding: 0;
+}
+
+html
+{
+	height: 100%;
+}
+
+body
+{
+	height: 100%;
+	background-color: #000000;
+	color: #ffffff;
+	line-height: 1.4;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 110%;
+	text-align: left;
+}
+
+a
+{
+	color: #2673bf;
+	text-decoration: underline;
+}
+
+a:visited
+{
+	color: #2673bf;
+}
+
+a:hover
+{
+	text-decoration: none;
+}
+
+img
+{
+	border: 0 none transparent;
+}
+
+input, select, table, textarea
+{
+	font-size: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.replacement
+{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+}
+
+a .replacement
+{
+	cursor: hand;
+	c\ursor: pointer;
+}
+
+#top
+{
+	position: absolute;
+	left: -9999px;
+	top: -9999px;
+}
+
+
+
+
+/* CONTENT ----------------------------------------------------------------- */
+
+#visibleTweets
+{
+	width: 100%;
+	height: 100%;
+}
+
+#noFlash
+{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 25em;
+	margin: -5em 0 0 -12.5em;
+	text-align: left;
+}
+
+h1
+{
+	position: relative;
+	width: 255px;
+	height: 36px;
+	overflow: hidden;
+}
+
+h1 .replacement
+{
+	background-image: url(../images/logo.gif);
+}
+
+#noFlash p
+{
+	margin: 1.4em 0 0 0;
+}
+
+#message {
+	display: none;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 15px 20px 15px 20px;
+	background-color: rgba(0,0,0,0.5);
+	text-align: center;
+	font-weight: bold;
+}
+
+#message.on {
+	display: block;
+}
+
+#message a {
+	color: #ffffff;
+}

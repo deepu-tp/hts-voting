@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<!-- Use hex color values such as #99ccff. To cycle through the spectrum, comment out this XML node -->
+<!--
+	<bgcolor>#00B0DA</bgcolor>
+	<bgcolor>#7f7f7f</bgcolor>
+-->
+	<!-- Specifies a background image to apply. Comment out this XML node to have no background image -->
+<!--
+	<bgimage>octo-new-background.jpg</bgimage>
+-->
+	<!-- Specifies the colour of the text. Use hex color values such as #99ccff -->
+<!--
+	<fontcolor>#ffffff</fontcolor>
+-->
+	<!-- Specifies a brand image (logo) to apply. Comment out this XML node to have no brand image -->
+<!--
+	<brand>gdf_logo.png</brand>
+-->
+	<!-- Specifies the time that a tweet is displayed for, in seconds. Default is 5 -->
+<!--
+	<display_time>10</display_time>
+-->
+	<!-- Amount of time (in seconds) to wait between fetching new tweets -->
+<!--
+	<reload_time>30</reload_time>
+-->
+	<!-- Turn drop shadows on or off. Shadows are always on unless this equals "false" -->
+<!--
+	<shadows>false</shadows>
+-->
+	<!-- Specifies at Twitter account to pull favorites from -->
+<!--
+	<favorites>favorites</favorites>
+-->
+	<!-- Specifies the default query to start with -->
+<!--
+	<query>favorites</query>
+-->
+	<!-- The extension to add to proxy URLs -->
+<!--
+	<proxy_extension></proxy_extension>
+-->
+</config>

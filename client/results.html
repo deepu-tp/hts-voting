@@ -1,11 +1,21 @@
 <template name="results">
-    <div class="eight wide column">
-        {{> barChart}}
-        {{#each stalls}}
-            {{> wordcloud}}
-        {{/each}}
-        {{> stallFlower}}
+    <div class="ui grid">
+        <div class="eight wide column">
+            {{> barChart}}
+        </div>
+        <div class="eight wide column">
+            {{> stallFlower}}
+        </div>
+    </div>
 
+    <div class="ui vertically divided grid">
+        <div class="two column row">
+            {{#each stalls}}
+                {{> wordcloud}}
+            {{/each}}
+        </div>
+    </div>
+        <!--
         <table width="100%">
             <tr>
                 <th>Stall</th>
@@ -15,24 +25,17 @@
                 {{> row}}
             {{/each}}
         </table>
-    </div>
-</template>
-
-<template name="row">
-    <tr>
-        <td>{{ name }}</td>
-        <td style="text-align: center;">{{ votes.length }}</td>
-    </tr>
+        -->
 </template>
 
 <template name="stallFlower">
-    <div id="stallFlower">
-    </div>
+    <div id="stallFlower"></div>
 </template>
 
 <template name="wordcloud">
-    <h4>{{name}}</h4>
-    <div id="wordcloud_{{_id}}">
+    <div class="column">
+        <h4>{{name}}</h4>
+        <div id="wordcloud_{{_id}}"></div>
     </div>
 </template>
 
@@ -40,4 +43,13 @@
     <div id="barChart">
         <svg></svg>
     </div>
+</template>
+
+
+
+<template name="row">
+    <tr>
+        <td>{{ name }}</td>
+        <td style="text-align: center;">{{ votes.length }}</td>
+    </tr>
 </template>

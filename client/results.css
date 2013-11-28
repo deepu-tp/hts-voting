@@ -1,0 +1,12 @@
+.link {
+	stroke : #6F6F6F
+}
+
+.cf-tooltip {
+	background-color: white;
+	opacity: 0.7
+}
+
+#barChart {
+	height: 300px;
+}

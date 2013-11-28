@@ -5,6 +5,10 @@
 	font-family: 'Gloria Hallelujah';
 }
 
+svg {
+	font-size: 10px;
+}
+
 .connected.items .item {
 	opacity: 0.6;
 }
